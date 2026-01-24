@@ -82,6 +82,7 @@ void printtable(const birdtracker::birdstats& user, const birdtracker& tracker, 
 #ifdef _DEBUG
     // void to skip printing the table in debug mode
 #else 
+    cout << fixed << setprecision(2);
     SetConsoleTextAttribute(hConsole, 13);
     cout << setw(30) << setfill('*') << "" << setfill(' ') << endl;
     SetConsoleTextAttribute(hConsole, 7);

@@ -1,7 +1,7 @@
 ******************************
    User's Name :       Paul
-   Days Birding :         3
-   Hours Birding :        2
-   Birds Seen :           15
-   Average Birds :      7.5
+   Days Birding :         4
+   Hours Birding :        3
+   Birds Seen :            7
+   Average Birds :  2.33333
 ******************************
