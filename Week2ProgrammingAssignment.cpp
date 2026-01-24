@@ -1,5 +1,7 @@
 // This program takes in the user data for: Their name; How many days they birded; How many hours they birded; How many birds they saw; and if it is winter or not.
 // This program outputs if the user had a good or bad birding day as well as a table of the user's statistics.
+
+// ********** DOCTEST STATEMENTS **********
 #ifdef _DEBUG
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
@@ -116,8 +118,8 @@ TEST_CASE("Calculations") {
     birdtracker tracker;
     birdtracker::birdstats stats{ "Annabelle", 1, 5, 50, 0, false }; // name: Annabelle, daysbirding: 1, hoursbirding: 5, birdsseen: 50, hourlybirds: 0, winter: false
     CHECK(tracker.calculateHourlyBirds(stats) == doctest::Approx(10));
-    stats.hoursbirding = 2; stats.birdsseen = 10;
-    CHECK(tracker.calculateHourlyBirds(stats) == doctest::Approx(5));
+    stats.hoursbirding = 2; stats.birdsseen = 15;
+    CHECK(tracker.calculateHourlyBirds(stats) == doctest::Approx(7.5));
     stats.hoursbirding = 0;
     CHECK(tracker.calculateHourlyBirds(stats) == doctest::Approx(0));
     stats.hoursbirding = 3; stats.birdsseen = 15;
@@ -195,7 +197,6 @@ int main() {
 
     user.hourlybirds = tracker.calculateHourlyBirds(user);
 
-    cout << fixed << setprecision(2);
     if (user.hourlybirds >= 10 && user.winter)
         cout << "You had a good birding day, even though it was winter!" << endl;
     else if (user.hourlybirds <= 10 && user.winter)
