@@ -118,8 +118,8 @@ TEST_CASE("Calculations") {
     birdtracker tracker;
     birdtracker::birdstats stats{ "Annabelle", 1, 5, 50, 0, false }; // name: Annabelle, daysbirding: 1, hoursbirding: 5, birdsseen: 50, hourlybirds: 0, winter: false
     CHECK(tracker.calculateHourlyBirds(stats) == doctest::Approx(10));
-    stats.hoursbirding = 2; stats.birdsseen = 10;
-    CHECK(tracker.calculateHourlyBirds(stats) == doctest::Approx(5));
+    stats.hoursbirding = 2; stats.birdsseen = 15;
+    CHECK(tracker.calculateHourlyBirds(stats) == doctest::Approx(7.5));
     stats.hoursbirding = 0;
     CHECK(tracker.calculateHourlyBirds(stats) == doctest::Approx(0));
     stats.hoursbirding = 3; stats.birdsseen = 15;
@@ -210,5 +210,4 @@ int main() {
 
     return 0;
 }
-
 #endif
